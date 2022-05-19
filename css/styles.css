@@ -1,0 +1,127 @@
+*
+{
+	
+}
+
+body{
+	display: flex;
+	flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+h1{
+	font-family: Times New Roman;
+	font-size: 21px;
+}
+
+h2{
+	font-family: Times New Roman;
+	font-size: 22px;
+}
+
+h3{
+	font-family: Times New Roman;
+	font-size: 16px;
+}
+
+/*bar*/
+
+.bar{
+	height: 100%;
+	width: 17%;
+}
+
+.favorite{
+	border: 1px solid #29282c;
+	border-radius: 5px;
+	background-color: #a9a7ad;
+	text-align: center;
+}
+
+.subfavorite{
+	border: 1px solid #29282c;
+	border-radius: 5px;
+	background-color: #c7c5cb;
+	text-align: center;
+}
+
+.books{
+	border: 1px solid #29282c;
+	border-radius: 5px;
+	background-color: #a9a7ad;
+	text-align: center;
+}
+
+.subbooks{
+	border: 1px solid #29282c;
+	border-radius: 5px;
+	background-color: #c7c5cb;
+	text-align: left;
+}
+
+.addbook{
+	border: 1px solid #29282c;
+	border-radius: 5px;
+	background-color: #a9a7ad;
+	text-align: center;
+}
+
+.form_add{
+	border: 1px solid #29282c;
+	border-radius: 5px;
+	background-color: #a9a7ad;
+	text-align: center;
+}
+
+.add_ways{
+	border: 1px solid #29282c;
+	border-radius: 5px;
+	background-color: #a9a7ad;
+}
+
+.name_b{
+	margin-bottom: 2px;
+}
+
+/*Выбор загрузки*/
+
+.tabs>div {
+	display: none;
+	padding: 10px 15px;
+	font-size: 16px;
+}
+
+#tab-btn-1:checked~#content-1,
+#tab-btn-2:checked~#content-2 {
+	display: block;
+}
+
+.tabs>label {
+	display: inline-block;
+	text-align: center;
+	vertical-align: middle;
+	user-select: none;
+	font-family: Times New Roman;
+	font-size: 16px;
+	cursor: pointer;
+	position: relative;
+}
+
+.tabs>input[type="radio"]:checked+label {
+	text-decoration: underline;
+}
+
+/*content*/
+
+.content{
+	height: 100%;
+	width: 83%;
+	border: 1px solid white;
+}
+
+.open_book{
+	border: 1px solid #29282c;
+	border-radius: 5px;
+	background-color: #a9a7ad;
+	text-align: center;
+}
