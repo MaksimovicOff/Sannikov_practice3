@@ -8,14 +8,14 @@ $sql = "INSERT INTO `books1` (`tittle`, `description`) VALUES ('$tittle', '$desc
 if ($tittle && $desc) {
   $run_sql = mysqli_query($connect,$sql);
   if ($run_sql) {
-    header("Location:index.php");
     echo 'alert(Вы успешно добавили книгу!)';
+    header("Location:index.php");
   }
 }
 else
 {
-    header("Location:index.php");
     echo 'alert(Заполните все поля!)';
+    header("Location:index.php");
 }
 }
 ?>
