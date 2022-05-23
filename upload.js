@@ -1,22 +1,23 @@
-const url = 'process.php'
-const form = document.getElementById('23')
+$(document).ready(function (e) {
+  $('#forma').on('submit', function (e) {
+   e.preventDefault();
+   let formData = new FormData(this);
 
-form.addEventListener('submit', (e) => {
-  e.preventDefault()
+   $.ajax({
+    type: 'POST',
+    url: $(this).attr('action'),
+    data: formData,
+    cache: false,
+    contentType: false,
+    processData: false,
+    success: function (data) {
+     $('#results').html(data);
+    },
+    error: function (data) {
+     document.getElementById('results').innerHTML = "Успех2!";
+     document.getElementById('results').innerHTML = data;
+    }
 
-  const files = document.querySelector('[type=file]').files
-  const formData = new FormData()
-
-  for (let i = 0; i < files.length; i++) {
-    let file = files[i]
-
-    formData.append('files[]', file)
-  }
-
-  fetch(url, {
-    method: 'POST',
-    body: formData,
-  }).then((response) => {
-    console.log(response)
+   });
   })
-})
+ });
