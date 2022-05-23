@@ -24,6 +24,14 @@ h3{
 	font-size: 16px;
 }
 
+a{
+	text-decoration: none;
+}
+
+i{
+	text-decoration: none;
+}
+
 /*bar*/
 
 .bar{
@@ -38,11 +46,22 @@ h3{
 	text-align: center;
 }
 
-.subfavorite{
+.container{
+
+	margin: 3px;
+	padding: 1px;
+}
+
+.draggable{
 	border: 1px solid #29282c;
 	border-radius: 5px;
-	background-color: #c7c5cb;
+	background-color: #a9a7ad;
 	text-align: center;
+	cursor: move;
+	
+}
+.draggable.dragging{
+	opacity: .5;
 }
 
 .books{
@@ -50,13 +69,6 @@ h3{
 	border-radius: 5px;
 	background-color: #a9a7ad;
 	text-align: center;
-}
-
-.subbooks{
-	border: 1px solid #29282c;
-	border-radius: 5px;
-	background-color: #c7c5cb;
-	text-align: left;
 }
 
 .addbook{
@@ -114,7 +126,7 @@ h3{
 /*content*/
 
 .content{
-	height: 100%;
+	height: 300%;
 	width: 83%;
 	border: 1px solid white;
 }
