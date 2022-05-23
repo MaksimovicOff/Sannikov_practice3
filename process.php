@@ -1,36 +1,31 @@
 <?php
 $connect = mysqli_connect('localhost','root','','libary');
 $path = "uploads/";
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_FILES['files'])) {
-        $errors = [];
-        $path = 'uploads/';
-        $extensions = ['txt'];
-
-        $all_files = count($_FILES['files']['tmp_name']);
-
-        for ($i = 0; $i < $all_files; $i++) {
-            $file_name = $_FILES['files']['name'][$i];
-            $file_tmp = $_FILES['files']['tmp_name'][$i];
-            $file_type = $_FILES['files']['type'][$i];
-            $file_size = $_FILES['files']['size'][$i];
-            $file_ext = strtolower(end(explode('.', $_FILES['files']['name'][$i])));
-
-            $file = $path . $file_name;
-
-            if (!in_array($file_ext, $extensions)) {
-                $errors[] = 'Extension not allowed: ' . $file_name . ' ' . $file_type;
-            }
-
-            if ($file_size > 2097152) {
-                $errors[] = 'File size exceeds limit: ' . $file_name . ' ' . $file_type;
-            }
-
-            if (empty($errors)) {
-                move_uploaded_file($file_tmp, $file);
-            }
-        }
-
-        if ($errors) print_r($errors);
+if (isset($_FILES['file1'])) {
+    $filename=$_FILES['file1']['name'];
+    $whitelist = array(".txt");
+    $filename = strtolower($filename);
+    $file_ext = strrchr($filename, '.');
+    $str_upload = "INSERT INTO `books` (`name`, `file`) VALUES ('$filename', '$path".$_FILES['file1']['name']."');";
+    if (in_array($file_ext, $whitelist)) {
+      $run = mysqli_query($connect,$str_upload);
+      if ($run) {
+          echo 'Файл успешно загружен!';
+          move_uploaded_file($_FILES['file1']['tmp_name'], $path. '/'. $_FILES['file1']['name']);
+      }
+      else
+      {
+        echo $str_upload;
+        echo "Файл не загружен(";
+      }
+    } 
+    else
+    {
+      echo 'Неверный тип файла!';
     }
-}
+  }
+  else
+  {
+    echo 'Нет файла!';
+  }
+?>
